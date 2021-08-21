@@ -33,6 +33,12 @@ public class CommandeClientValidator {
         if(commandeClientDto.getLigneCommandeClients() == null){
             errors.add("veuillez renseigner les lignes de la commande");
         }
+        else {
+            if (commandeClientDto.getClient().getId() == null) {
+                errors.add("veuillez renseigner l'Id du client");
+
+            }
+        }
         return  errors;
     }
 }

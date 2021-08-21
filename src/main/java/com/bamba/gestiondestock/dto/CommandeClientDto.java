@@ -60,7 +60,7 @@ public class CommandeClientDto {
 
     private List<LigneCommandeClientDto> ligneCommandeClients;
 
-    public CommandeClientDto fromEntity(CommandeClient commandeClient){
+    public static CommandeClientDto fromEntity(CommandeClient commandeClient){
 
         if( commandeClient == null){
 
@@ -71,10 +71,11 @@ public class CommandeClientDto {
                 .id(commandeClient.getId())
                 .code(commandeClient.getCode())
                 .dateCommande(commandeClient.getDateCommande())
+                .client(ClientDto.fromEntity(commandeClient.getClient()))
                 .build();
     }
 
-    public  CommandeClient toEntity(CommandeClientDto commandeClientDto) {
+    public static CommandeClient toEntity(CommandeClientDto commandeClientDto) {
 
         if (commandeClientDto == null) {
 
@@ -84,6 +85,7 @@ public class CommandeClientDto {
         commandeClient.setId(commandeClientDto.getId());
         commandeClient.setDateCommande(commandeClientDto.getDateCommande());
         commandeClient.setCode(commandeClientDto.getCode());
+        commandeClient.setClient(ClientDto.toEntity(commandeClientDto.client));
 
         return commandeClient;
     }
