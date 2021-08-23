@@ -23,6 +23,7 @@ public class VentesValidator {
         if(ventesDto.getDateVente() == null){
             errors.add("veuillez renseigner la date de la vente ");
         }
+
         if(!StringUtils.hasLength(ventesDto.getCode())){
             errors.add("veuillez renseigner le code ");
         }

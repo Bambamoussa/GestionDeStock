@@ -49,7 +49,7 @@ public class FournisseurServiceImpl implements FournisseurService {
                 .map(FournisseurDto::fromEntity)
                 .orElseThrow(()->new EntityNotFoundException(
                         "Aucun fournisseur avec l'ID = "+ id + "n'a été trouvé dans la BDD",
-                        ErrorCodes.FOURNISSEUR__NOT_FOUND)
+                        ErrorCodes.FOURNISSEUR_NOT_FOUND)
                 );
     }
 

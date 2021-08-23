@@ -17,6 +17,16 @@ public class ArticleDto {
 
     private String designation ;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
+
     private BigDecimal prixUnitaireHt;
 
     private BigDecimal tauxTva;
@@ -103,6 +113,8 @@ public class ArticleDto {
                 .prixUnitaireHt(article.getPrixUnitaireHt())
                 .tauxTva(article.getTauxTva())
                 .prixUnitaireTtc(article.getPrixUnitaireTtc())
+                .idEntreprise(article.getIdEntreprise())
+                .category(CategoryDto.fromEntity(article.getCategory()))
                 .photo(article.getPhoto())
                 .build();
 
@@ -120,6 +132,8 @@ public class ArticleDto {
         article.setPrixUnitaireHt(articleDto.getPrixUnitaireHt());
         article.setTauxTva(articleDto.getTauxTva());
         article.setPhoto(articleDto.getPhoto());
+        article.setIdEntreprise(articleDto.getIdEntreprise());
+        article.setCategory(CategoryDto.toEntity(articleDto.getCategory()));
         article.setPrixUnitaireTtc(articleDto.getPrixUnitaireTtc());
 
         return  article;

@@ -23,6 +23,16 @@ public class FournisseurDto {
 
     private String numTel ;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
+
     private List<CommandeFournisseurDto> commandeFournisseur;
 
     public Integer getId() {
@@ -102,7 +112,8 @@ public class FournisseurDto {
                .photo(fournisseur.getPhoto())
                .mail(fournisseur.getMail())
                .numTel(fournisseur.getNumTel())
-               .build();
+                .idEntreprise(fournisseur.getIdEntreprise())
+                .build();
     }
 
     public static Fournisseur toEntity(FournisseurDto fournisseurDto){
@@ -115,6 +126,7 @@ public class FournisseurDto {
         fournisseur.setNom(fournisseurDto.getNom());
         fournisseur.setPrenom(fournisseurDto.getPrenom());
         fournisseur.setPhoto(fournisseurDto.getPhoto());
+        fournisseur.setIdEntreprise(fournisseurDto.getIdEntreprise());
         fournisseur.setNumTel(fournisseurDto.getNumTel());
         fournisseur.setId(fournisseurDto.getId());
 

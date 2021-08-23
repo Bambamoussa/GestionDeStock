@@ -21,6 +21,16 @@ public class MvtStkDto {
 
     private TypeMvtStock typeMvt;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
+
     public Integer getId() {
         return id;
     }
@@ -71,6 +81,7 @@ public class MvtStkDto {
                 .id(mvtStk.getId())
                 .dateMvt(mvtStk.getDateMvt())
                 .quantite(mvtStk.getQuantite())
+                .idEntreprise(mvtStk.getIdEntreprise())
                 .typeMvt(mvtStk.getTypeMvt())
                 .build();
     }
@@ -85,6 +96,7 @@ public class MvtStkDto {
         mvtStk.setDateMvt(mvtStkDto.getDateMvt());
         mvtStk.setTypeMvt(mvtStkDto.getTypeMvt());
         mvtStk.setQuantite(mvtStkDto.getQuantite());
+        mvtStk.setIdEntreprise(mvtStkDto.getIdEntreprise());
 
         return  mvtStk;
     }

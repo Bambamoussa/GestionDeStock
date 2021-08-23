@@ -20,6 +20,16 @@ public class LigneCommandeFournisseurDto {
 
     private BigDecimal quantite ;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
+
     public Integer getId() {
         return id;
     }
@@ -62,18 +72,19 @@ public class LigneCommandeFournisseurDto {
 
     private  BigDecimal prixUnitaire;
 
-    public LigneCommandeFournisseurDto fromEntity(LigneCommandeFournisseur ligneCommandeFournisseur){
+    public static LigneCommandeFournisseurDto fromEntity(LigneCommandeFournisseur ligneCommandeFournisseur){
         if(ligneCommandeFournisseur == null){
             return null;
         }
         return LigneCommandeFournisseurDto.builder()
                 .id(ligneCommandeFournisseur.getId())
+                .idEntreprise(ligneCommandeFournisseur.getIdEntreprise())
                 .quantite(ligneCommandeFournisseur.getQuantite())
                 .prixUnitaire(ligneCommandeFournisseur.getPrixUnitaire())
                 .build();
     }
 
-    public  LigneCommandeFournisseur toEntity(LigneCommandeFournisseurDto ligneCommandeFournisseurDto){
+    public static LigneCommandeFournisseur toEntity(LigneCommandeFournisseurDto ligneCommandeFournisseurDto){
 
         if(ligneCommandeFournisseurDto == null){
             return null;
@@ -83,6 +94,7 @@ public class LigneCommandeFournisseurDto {
         ligneCommandeFournisseur.setId(ligneCommandeFournisseurDto.getId());
         ligneCommandeFournisseur.setPrixUnitaire(ligneCommandeFournisseurDto.getPrixUnitaire());
         ligneCommandeFournisseur.setQuantite(ligneCommandeFournisseurDto.getQuantite());
+        ligneCommandeFournisseur.setIdEntreprise(ligneCommandeFournisseurDto.getIdEntreprise());
 
         return  ligneCommandeFournisseur;
 

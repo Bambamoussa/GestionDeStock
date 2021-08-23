@@ -24,6 +24,16 @@ public class ClientDto {
 
     private String numTel ;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
+
     public Integer getId() {
         return id;
     }
@@ -101,6 +111,7 @@ public class ClientDto {
                .nom(client.getNom())
                .prenom(client.getPrenom())
                .photo(client.getPhoto())
+                .idEntreprise(client.getIdEntreprise())
                .mail(client.getMail())
                .numTel(client.getNumTel())
                .build();
@@ -116,6 +127,7 @@ public class ClientDto {
          client.setNom(clientDto.getNom());
          client.setPhoto(clientDto.getPhoto());
          client.setPrenom(clientDto.getPrenom());
+         client.setIdEntreprise(clientDto.getIdEntreprise());
          client.setNumTel(clientDto.getNumTel());
 
          return client ;

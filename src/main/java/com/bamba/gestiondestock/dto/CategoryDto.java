@@ -19,6 +19,24 @@ public class CategoryDto {
 
     private  String designation;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    public List<ArticleDto> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<ArticleDto> articles) {
+        this.articles = articles;
+    }
+
+    private Integer idEntreprise ;
+
     public Integer getId() {
         return id;
     }
@@ -54,8 +72,9 @@ public class CategoryDto {
 
         return CategoryDto.builder()
                 .id(category.getId())
-               .code(category.getCode())
-               .designation(category.getDesignation())
+                .code(category.getCode())
+                .designation(category.getDesignation())
+                .idEntreprise(category.getIdEntreprise())
                .build();
     }
 
@@ -67,6 +86,7 @@ public class CategoryDto {
         Category category = new Category();
         category.setId(categoryDto.getId());
         category.setCode(categoryDto.getCode());
+        category.setIdEntreprise(categoryDto.getIdEntreprise());
         category.setDesignation(categoryDto.getDesignation());
 
         return  category;

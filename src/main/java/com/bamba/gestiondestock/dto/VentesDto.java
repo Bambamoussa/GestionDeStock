@@ -4,6 +4,7 @@ import com.bamba.gestiondestock.model.Ventes;
 import lombok.Builder;
 import lombok.Data;
 import java.time.Instant;
+import java.util.List;
 
 @Builder
 @Data
@@ -49,7 +50,17 @@ public class VentesDto {
 
     private String commentaire;
 
-    public VentesDto fromEntity(Ventes ventes){
+    public List<LigneVenteDto> getLigneVentes() {
+        return ligneVentes;
+    }
+
+    public void setLigneVentes(List<LigneVenteDto> ligneVentes) {
+        this.ligneVentes = ligneVentes;
+    }
+
+    private List<LigneVenteDto> ligneVentes;
+
+    public static VentesDto fromEntity(Ventes ventes){
 
         if(ventes == null){
             return null;
@@ -63,7 +74,7 @@ public class VentesDto {
                 .build();
     }
 
-    public Ventes toEntity( VentesDto ventesDto){
+    public static Ventes toEntity( VentesDto ventesDto){
         if(ventesDto == null){
             return  null;
         }

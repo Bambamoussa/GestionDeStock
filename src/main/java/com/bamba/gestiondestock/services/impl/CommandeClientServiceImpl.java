@@ -75,7 +75,7 @@ public class CommandeClientServiceImpl implements CommandeClientService {
         }
         if(!articleErrors.isEmpty()){
             log.warn(" l'article n'existe pas");
-            throw new InvalidEntityException("Article n'existe pas dans la BDD",ErrorCodes.CATEGORY_NOT_FOUND,articleErrors);
+            throw new InvalidEntityException("Article n'existe pas dans la BDD",ErrorCodes.ARTICLE_NOT_FOUND,articleErrors);
         }
         CommandeClient saveCmmdClient = commandeClientRepository.save(CommandeClientDto.toEntity(dto));
         if(dto.getLigneCommandeClients() != null){

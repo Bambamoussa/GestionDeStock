@@ -28,6 +28,11 @@ public class CommandeFournisseurValidator {
         if(commandeFournisseurDto.getLigneCommandeFournisseurs() == null){
             errors.add("veuillez renseigner les lignes de la commande");
         }
+        else {
+            if (commandeFournisseurDto.getFournisseur().getId() == null) {
+                errors.add("veuillez renseigner l'Id du client");
+            }
+        }
         return  errors;
     }
 }

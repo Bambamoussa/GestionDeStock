@@ -26,6 +26,16 @@ public class UtilisateurDto {
 
     private String photo;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
+
     public Instant getDateDeNaissance() {
         return dateDeNaissance;
     }

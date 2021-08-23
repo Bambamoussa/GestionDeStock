@@ -4,8 +4,10 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.List;
 
 @Data
 @Builder
@@ -59,4 +61,14 @@ public class Ventes extends  AbstractEntity{
     @Column(name = "commentaire")
     private String commentaire;
 
+    @OneToMany(mappedBy = "vente")
+    private List<LigneVente> ligneVentes;
+
+    public List<LigneVente> getLigneVentes() {
+        return ligneVentes;
+    }
+
+    public void setLigneVentes(List<LigneVente> ligneVentes) {
+        this.ligneVentes = ligneVentes;
+    }
 }

@@ -19,6 +19,16 @@ public class CommandeFournisseurDto {
 
     private FournisseurDto fournisseur;
 
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
+
     public Integer getId() {
         return id;
     }
@@ -70,13 +80,14 @@ public class CommandeFournisseurDto {
         return  CommandeFournisseurDto.builder()
                 .id(commandeFournisseur.getId())
                 .code(commandeFournisseur.getCode())
+                .idEntreprise(commandeFournisseur.getIdEntreprise())
                 .dateCommande(commandeFournisseur.getDateCommande())
                 .fournisseur(FournisseurDto.fromEntity(commandeFournisseur.getFournisseur()))
                 .build();
 
     }
 
-    public CommandeFournisseur toEntity(CommandeFournisseurDto commandeFournisseurDto){
+    public static CommandeFournisseur toEntity(CommandeFournisseurDto commandeFournisseurDto){
 
         if(commandeFournisseurDto == null){
             return  null;
@@ -86,6 +97,7 @@ public class CommandeFournisseurDto {
         commandeFournisseur.setId(commandeFournisseurDto.getId());
         commandeFournisseur.setCode(commandeFournisseurDto.getCode());
         commandeFournisseur.setDateCommande(commandeFournisseurDto.getDateCommande());
+        commandeFournisseur.setIdEntreprise(commandeFournisseurDto.getIdEntreprise());
         commandeFournisseur.setFournisseur(FournisseurDto.toEntity(commandeFournisseurDto.getFournisseur()));
 
         return  commandeFournisseur;

@@ -1,5 +1,6 @@
 package com.bamba.gestiondestock.dto;
 
+import com.bamba.gestiondestock.model.Article;
 import com.bamba.gestiondestock.model.LigneVente;
 import com.bamba.gestiondestock.model.Ventes;
 import lombok.Builder;
@@ -18,6 +19,25 @@ public class LigneVenteDto {
     private BigDecimal quantite ;
 
     private  BigDecimal prixUnitaire;
+
+    public Integer getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+    }
+
+    private Article article;
+    public void setIdEntreprise(Integer idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+    private Integer idEntreprise ;
 
     public Integer getId() {
         return id;
@@ -51,7 +71,7 @@ public class LigneVenteDto {
         this.prixUnitaire = prixUnitaire;
     }
 
-    public  LigneVenteDto fromEntity(LigneVente ligneVente){
+    public static LigneVenteDto fromEntity(LigneVente ligneVente){
 
         if(ligneVente == null){
             return  null;
@@ -60,11 +80,12 @@ public class LigneVenteDto {
         return  LigneVenteDto.builder()
                 .id(ligneVente.getId())
                 .quantite(ligneVente.getQuantite())
+                .idEntreprise(ligneVente.getIdEntreprise())
                 .prixUnitaire(ligneVente.getPrixUnitaire())
                 .build();
     }
 
-    public  LigneVente toEntity(LigneVenteDto ligneVenteDto){
+    public static LigneVente toEntity(LigneVenteDto ligneVenteDto){
 
         if(ligneVenteDto == null){
             return  null;
@@ -72,6 +93,7 @@ public class LigneVenteDto {
         LigneVente ligneVente = new LigneVente();
         ligneVente.setId(ligneVenteDto.getId());
         ligneVente.setQuantite(ligneVenteDto.getQuantite());
+        ligneVente.setIdEntreprise(ligneVenteDto.getIdEntreprise());
         ligneVente.setPrixUnitaire(ligneVenteDto.getPrixUnitaire());
 
         return  ligneVente;

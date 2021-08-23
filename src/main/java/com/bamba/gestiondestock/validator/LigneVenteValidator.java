@@ -19,12 +19,16 @@ public class LigneVenteValidator {
         if(ligneVenteDto.getVente() == null){
             errors.add("veuillez renseigner les informations de la vente");
         }
+        if(ligneVenteDto.getArticle() == null){
+            errors.add("veuillez renseigner les informations de l'article");
+        }
         if(ligneVenteDto.getPrixUnitaire() == null){
             errors.add("veuillez renseigner le prix unitaire du produit");
         }
         if(ligneVenteDto.getQuantite() == null){
             errors.add("veuillez renseigner la quantité vendu");
         }
+
         return  errors;
     }
 }
