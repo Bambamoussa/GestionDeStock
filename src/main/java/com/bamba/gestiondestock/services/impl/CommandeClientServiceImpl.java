@@ -41,6 +41,11 @@ public class CommandeClientServiceImpl implements CommandeClientService {
         this.articleRepository = articleRepository;
     }
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public CommandeClientDto save(CommandeClientDto dto) {
         List<String> errors = CommandeClientValidator.validate(dto);
@@ -90,6 +95,11 @@ public class CommandeClientServiceImpl implements CommandeClientService {
 
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public CommandeClientDto findById(Integer id) {
         if(id == null){
@@ -103,6 +113,11 @@ public class CommandeClientServiceImpl implements CommandeClientService {
                 ));
     }
 
+    /**
+     *
+     * @param code
+     * @return
+     */
     @Override
     public CommandeClientDto findByCode(String code) {
         if(code == null){
@@ -116,6 +131,10 @@ public class CommandeClientServiceImpl implements CommandeClientService {
                 ));
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<CommandeClientDto> findAll() {
         return commandeClientRepository.findAll().stream()
@@ -123,6 +142,10 @@ public class CommandeClientServiceImpl implements CommandeClientService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
         if(id == null){

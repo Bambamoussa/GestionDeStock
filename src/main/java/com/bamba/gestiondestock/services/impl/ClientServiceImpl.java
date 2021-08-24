@@ -24,6 +24,11 @@ public class ClientServiceImpl implements ClientService {
         this.clientRepository = clientRepository;
     }
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public ClientDto save(ClientDto dto) {
         List<String> errors = ClientValidator.validate(dto);
@@ -35,6 +40,11 @@ public class ClientServiceImpl implements ClientService {
         return ClientDto.fromEntity(client);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public ClientDto findById(Integer id) {
          if( id == null){
@@ -49,6 +59,10 @@ public class ClientServiceImpl implements ClientService {
                  );
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<ClientDto> findAll() {
         return clientRepository.findAll().stream()
@@ -56,6 +70,10 @@ public class ClientServiceImpl implements ClientService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
         if (id == null){

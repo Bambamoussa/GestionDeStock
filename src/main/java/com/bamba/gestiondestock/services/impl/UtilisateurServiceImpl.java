@@ -29,6 +29,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         this.utilisateurRepository = utilisateurRepository ;
     }
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public UtilisateurDto save(UtilisateurDto dto) {
 
@@ -41,6 +46,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return UtilisateurDto.fromEntity(utilisateur);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public UtilisateurDto findById(Integer id) {
 
@@ -56,6 +66,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                 );
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<UtilisateurDto> findAll() {
 
@@ -64,6 +78,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
         if(id == null){

@@ -38,6 +38,11 @@ public class CommandeFournisseurServiceImpl implements CommandeFournisseurServic
         this.articleRepository = articleRepository;
     }
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public CommandeFournisseurDto save(CommandeFournisseurDto dto) {
         List<String> errors = CommandeFournisseurValidator.validate(dto);
@@ -86,6 +91,11 @@ public class CommandeFournisseurServiceImpl implements CommandeFournisseurServic
 
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public CommandeFournisseurDto findById(Integer id) {
         if(id == null){
@@ -99,6 +109,11 @@ public class CommandeFournisseurServiceImpl implements CommandeFournisseurServic
                 ));
     }
 
+    /**
+     *
+     * @param code
+     * @return
+     */
     @Override
     public CommandeFournisseurDto findByCode(String code) {
         if(code == null){
@@ -112,6 +127,10 @@ public class CommandeFournisseurServiceImpl implements CommandeFournisseurServic
                 ));
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<CommandeFournisseurDto> findAll() {
         return commandeFournisseurRepository.findAll().stream()
@@ -119,6 +138,10 @@ public class CommandeFournisseurServiceImpl implements CommandeFournisseurServic
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
 

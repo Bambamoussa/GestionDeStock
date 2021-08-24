@@ -27,6 +27,11 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository =categoryRepository ;
     }
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public CategoryDto save(CategoryDto dto) {
         List<String> errors = CategoryValidator.validate(dto);
@@ -38,6 +43,11 @@ public class CategoryServiceImpl implements CategoryService {
         return  CategoryDto.fromEntity(category);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public CategoryDto findById(Integer id) {
          if(id == null){
@@ -54,6 +64,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     }
 
+    /**
+     *
+     * @param code
+     * @return
+     */
     @Override
     public CategoryDto findByCode(String code) {
         if(StringUtils.hasLength(code)){
@@ -68,6 +83,10 @@ public class CategoryServiceImpl implements CategoryService {
                 );
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<CategoryDto> findAll() {
         return categoryRepository.findAll().stream()
@@ -75,6 +94,10 @@ public class CategoryServiceImpl implements CategoryService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
         if(id == null){

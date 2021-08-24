@@ -26,6 +26,12 @@ public class FournisseurServiceImpl implements FournisseurService {
     public FournisseurServiceImpl(FournisseurRepository fournisseurRepository){
         this.fournisseurRepository = fournisseurRepository ;
     }
+
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public FournisseurDto save(FournisseurDto dto) {
 
@@ -38,6 +44,11 @@ public class FournisseurServiceImpl implements FournisseurService {
         return FournisseurDto.fromEntity(fournisseur);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public FournisseurDto findById(Integer id) {
 
@@ -53,6 +64,10 @@ public class FournisseurServiceImpl implements FournisseurService {
                 );
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<FournisseurDto> findAll() {
 
@@ -61,6 +76,10 @@ public class FournisseurServiceImpl implements FournisseurService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
         if(id == null){

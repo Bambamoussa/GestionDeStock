@@ -27,6 +27,12 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleServiceImpl(ArticleRepository articleRepository){
         this.articleRepository = articleRepository ;
     }
+
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public ArticleDto save(ArticleDto dto) {
         List<String> errors = ArticleValidator.validate(dto);
@@ -39,6 +45,11 @@ public class ArticleServiceImpl implements ArticleService {
         return ArticleDto.fromEntity(saveArticle);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public ArticleDto findById(Integer id) {
         if(id == null){
@@ -55,6 +66,11 @@ public class ArticleServiceImpl implements ArticleService {
                             "de données", ErrorCodes.ARTICLE_NOT_FOUND));
     }
 
+    /**
+     *
+     * @param codeArticle
+     * @return
+     */
     @Override
     public ArticleDto findByCodeArticle(String codeArticle) {
         if(!StringUtils.hasLength(codeArticle)){
@@ -70,6 +86,10 @@ public class ArticleServiceImpl implements ArticleService {
                         "de données", ErrorCodes.ARTICLE_NOT_FOUND));
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<ArticleDto> findAll() {
          return articleRepository.findAll().stream()
@@ -77,6 +97,10 @@ public class ArticleServiceImpl implements ArticleService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
 

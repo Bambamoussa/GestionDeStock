@@ -30,6 +30,11 @@ public class VentesServicesImpl implements VentesService {
     private VentesRepository ventesRepository ;
     private LigneVenteRepository ligneVenteRepository;
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public VentesDto save(VentesDto dto) {
         List<String> errors = VentesValidator.validate(dto);
@@ -61,6 +66,11 @@ public class VentesServicesImpl implements VentesService {
         return  VentesDto.fromEntity(savedVentes);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public VentesDto findById(Integer id) {
         if(id == null){
@@ -87,6 +97,10 @@ public class VentesServicesImpl implements VentesService {
                 ));
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<VentesDto> findAll() {
         return ventesRepository.findAll().stream()
@@ -94,6 +108,10 @@ public class VentesServicesImpl implements VentesService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
         if(id == null){

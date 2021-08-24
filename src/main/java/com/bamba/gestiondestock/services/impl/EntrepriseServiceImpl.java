@@ -26,6 +26,11 @@ public class EntrepriseServiceImpl implements EntrepriseService {
         this.entrepriseRepository = entrepriseRepository;
     }
 
+    /**
+     *
+     * @param dto
+     * @return
+     */
     @Override
     public EntrepriseDto save(EntrepriseDto dto) {
         List<String> errors = EntrepriseValidator.validate(dto);
@@ -38,6 +43,11 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public EntrepriseDto findById(Integer id) {
         if( id == null){
@@ -52,6 +62,10 @@ public class EntrepriseServiceImpl implements EntrepriseService {
                 );
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<EntrepriseDto> findAll() {
         return entrepriseRepository.findAll().stream()
@@ -59,6 +73,10 @@ public class EntrepriseServiceImpl implements EntrepriseService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Integer id) {
         if(id == null){
