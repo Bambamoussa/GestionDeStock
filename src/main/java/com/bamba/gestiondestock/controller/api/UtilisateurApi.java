@@ -1,0 +1,27 @@
+package com.bamba.gestiondestock.controller.api;
+
+import com.bamba.gestiondestock.dto.UtilisateurDto;
+import io.swagger.annotations.Api;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
+
+import static com.bamba.gestiondestock.utils.Constants.UTILISATEUR_ENDPOINT;
+
+@Api(UTILISATEUR_ENDPOINT)
+public interface UtilisateurApi {
+    @PostMapping(UTILISATEUR_ENDPOINT + "/create")
+    UtilisateurDto save(@RequestBody UtilisateurDto dto);
+
+    @GetMapping(UTILISATEUR_ENDPOINT+ "/{idUtilisateur}")
+    UtilisateurDto findById(@PathVariable("idUtilisateur") Integer id);
+
+    @GetMapping(UTILISATEUR_ENDPOINT + "/all")
+    List<UtilisateurDto> findAll();
+
+    @GetMapping(UTILISATEUR_ENDPOINT + "{/delete/{idUtilisateur}")
+    void delete (@PathVariable("idUtilisateur") Integer id);
+}
