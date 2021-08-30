@@ -15,16 +15,7 @@ public class Roles extends   AbstractEntity{
     @Column(name = "rolename")
     private String roleName;
 
-    public Integer getIdEntreprise() {
-        return idEntreprise;
-    }
 
-    public void setIdEntreprise(Integer idEntreprise) {
-        this.idEntreprise = idEntreprise;
-    }
-
-    @Column(name = "identreprise")
-    private Integer idEntreprise;
 
     public String getRoleName() {
         return roleName;
