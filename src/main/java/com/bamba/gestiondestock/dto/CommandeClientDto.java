@@ -1,6 +1,7 @@
 package com.bamba.gestiondestock.dto;
 
 import com.bamba.gestiondestock.model.CommandeClient;
+import com.bamba.gestiondestock.model.EtatCommande;
 import lombok.Builder;
 import lombok.Data;
 import java.time.Instant;
@@ -15,6 +16,16 @@ public class CommandeClientDto {
     private String code;
 
     private Instant dateCommande;
+
+    public EtatCommande getEtatCommande() {
+        return etatCommande;
+    }
+
+    public void setEtatCommande(EtatCommande etatCommande) {
+        this.etatCommande = etatCommande;
+    }
+
+    private EtatCommande etatCommande;
 
     private ClientDto client;
 
@@ -79,6 +90,7 @@ public class CommandeClientDto {
 
         return  CommandeClientDto.builder()
                 .id(commandeClient.getId())
+                .etatCommande(commandeClient.getEtatCommande())
                 .code(commandeClient.getCode())
                 .dateCommande(commandeClient.getDateCommande())
                 .idEntreprise(commandeClient.getIdEntreprise())
@@ -97,6 +109,11 @@ public class CommandeClientDto {
         commandeClient.setDateCommande(commandeClientDto.getDateCommande());
         commandeClient.setIdEntreprise(commandeClientDto.getIdEntreprise());
         commandeClient.setCode(commandeClientDto.getCode());
+        commandeClient.setEtatCommande(commandeClientDto.getEtatCommande());
         return commandeClient;
+    }
+
+    public boolean isCommandeLivree(){
+        return EtatCommande.LIVREE.equals(this.etatCommande);
     }
 }

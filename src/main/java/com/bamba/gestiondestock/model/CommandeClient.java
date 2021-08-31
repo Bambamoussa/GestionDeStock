@@ -18,6 +18,17 @@ public class CommandeClient extends  AbstractEntity{
     @Column(name = "code")
     private String code;
 
+    @Column(name = "etatcommande")
+    private EtatCommande etatCommande;
+
+    public EtatCommande getEtatCommande() {
+        return etatCommande;
+    }
+
+    public void setEtatCommande(EtatCommande etatCommande) {
+        this.etatCommande = etatCommande;
+    }
+
     public Integer getIdEntreprise() {
         return idEntreprise;
     }
